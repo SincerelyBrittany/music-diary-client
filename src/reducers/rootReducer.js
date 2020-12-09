@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import commentsReducer from "./commentsReducer";
-import searchReducer from "./searchReducer";
+// import commentsReducer from "./commentsReducer";
+// import searchReducer from "./searchReducer";
 import userReducer from './userReducer'
-import loginReducer from './loginReducer'
+
 
  
 const appReducer = combineReducers({
