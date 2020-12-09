@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import { Component } from 'react'
 import './App.css';
+import Login from './components/Login'
+// import Navbar from './containers/Navbar'
+import Home from './components/Home'
+import { BrowserRouter as Router, Route, Redirect, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  loggedIn = () => {
+    if (localStorage.token || sessionStorage.token) {
+      return true
+    } 
+    return true
+  }
+
+  render() {
+    return (
+      <>
+      <h1> login </h1>
+         <Login />
+      </>
+    );
+  }
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    search: state.search,
+  }
+}
+
+export default connect(mapStateToProps)(App);
