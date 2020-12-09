@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import './App.css';
 import Login from './components/Login'
+import { autoLogin, logout } from './actions/actionCreators'
 // import Navbar from './containers/Navbar'
 // import Home from './components/Home'
 import { BrowserRouter as Router, Route, Redirect, NavLink } from 'react-router-dom';
@@ -8,17 +9,12 @@ import { connect } from 'react-redux'
 
 class App extends Component {
 
-  loggedIn = () => {
-    if (localStorage.token || sessionStorage.token) {
-      return true
-    } 
-    return true
+  componentDidMount(){
+    localStorage.token && this.props.autoLogin()
   }
-
   render() {
     return (
       <>
-      <h1> login </h1>
          <Login />
       </>
     );
@@ -26,10 +22,6 @@ class App extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    search: state.search,
-  }
-}
+const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { autoLogin, logout })(App);
