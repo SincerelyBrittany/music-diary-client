@@ -2,7 +2,7 @@ import { Component } from 'react'
 import './App.css';
 import Login from './components/Login'
 // import Navbar from './containers/Navbar'
-import Home from './components/Home'
+// import Home from './components/Home'
 import { BrowserRouter as Router, Route, Redirect, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 
