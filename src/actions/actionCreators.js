@@ -1,9 +1,5 @@
 const API = "http://localhost:3000/api/v1"
 
-// export const like = () => ({type: "ADD_LIKE"})
-
-// thunk allows us to return a function that takes in the argument of dispatch, instead of a plain object representing the action
-
 export const toggleSignup = () => ({type: "TOGGLE_SIGNUP"})
 
 export const handleLoginFormChange = (e) => ({
@@ -66,6 +62,7 @@ export const autoLogin = () => {
     })
     .then(response => response.json())
     .then(response => {
+      // debugger
       dispatch({
       type: "SET_USER",
       payload: {user: response.user}

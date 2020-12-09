@@ -1,12 +1,15 @@
 import { combineReducers } from "redux";
 // import commentsReducer from "./commentsReducer";
 // import searchReducer from "./searchReducer";
+
 import userReducer from './userReducer'
+import songsReducer from './songsReducer'
 
 
  
 const appReducer = combineReducers({
-  user: userReducer
+  user: userReducer,
+  songs: songsReducer
   // search: searchReducer,
   // loginform: loginReducer,
   // comments: commentsReducer,

@@ -3,8 +3,11 @@ import './App.css';
 import Login from './components/Login'
 import { autoLogin, logout } from './actions/actionCreators'
 // import Navbar from './containers/Navbar'
-// import Home from './components/Home'
-import { BrowserRouter as Router, Route, Redirect, NavLink } from 'react-router-dom';
+import newEntry from './containers/NewEntryPage'
+import allEntries from './containers/AllEntries'
+import pastEntry from './containers/PastEntryPage'
+import MainPage from './containers/MainPage'
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -12,10 +15,25 @@ class App extends Component {
   componentDidMount(){
     localStorage.token && this.props.autoLogin()
   }
-  render() {
+  render(){
     return (
       <>
-         <Login />
+        <h1>Music Diary</h1>
+        {this.props.user.id
+        ?
+          <>
+          <Switch>
+           <Route exact path="/allentries" component={allEntries} />
+            <Route exact path="/newentry" component={newEntry} />
+            <Route exact path="/pastentry" component={pastEntry} />
+            <Route path="/main" component={MainPage}/>
+            <Route path="/" component={MainPage}/>
+          </Switch>
+          <button onClick={this.props.logout}>Logout!</button>
+          </>
+         :
+          <Login/>
+        } 
       </>
     );
   }
