@@ -33,6 +33,10 @@ class SearchEntry extends Component {
         this.props.searchForSong(event.target.search.value)
     }
 
+    handleClick = (event) => {
+        console.log("here", event)
+    }
+
     render(){
         return (
             <>
@@ -42,7 +46,7 @@ class SearchEntry extends Component {
             </form>
 
             <div className="cards">
-            {this.props.allsongs.map(song => <SongCard key={song.id} {...song} />)}
+            {this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} onClick={this.handleClick} />)}
             </div>
             </>
         )
