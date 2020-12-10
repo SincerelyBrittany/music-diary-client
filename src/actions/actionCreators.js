@@ -71,10 +71,30 @@ export const autoLogin = () => {
   }
 }
 
-export const reviewFormChange = (e) => ({
-  type: "REVIEW_FORM_CHANGE",
-  payload: {name: e.target.name, value: e.target.value}
-})
+
+export const searchForSong = (search) => {
+  return dispatch => {
+    dispatch({ type: 'START_SEARCH' })
+    fetch(API + "/songs/search", {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({search: search}),
+    })
+    .then(response => response.json())
+    .then(results => {
+      //returns an array of objects 
+      debugger
+      dispatch({ type: 'ADD_RESULTS', results })
+  })
+  }
+}
+
+// export const reviewFormChange = (e) => ({
+//   type: "REVIEW_FORM_CHANGE",
+//   payload: {name: e.target.name, value: e.target.value}
+// })
 
 export const logout = () => {
   return dispatch => {
