@@ -17,10 +17,10 @@ class App extends Component {
   }
   render(){
     return (
-      <>
-        <h1>Music Diary</h1>
-        {this.props.user.id
-        ?
+      // <>
+      //   <h1>Music Diary</h1>
+      //   {this.props.user.id
+      //   ?
           <>
           <Switch>
            <Route exact path="/allentries" component={allEntries} />
@@ -31,10 +31,10 @@ class App extends Component {
           </Switch>
           <button onClick={this.props.logout}>Logout!</button>
           </>
-         :
-          <Login/>
-        } 
-      </>
+      //    :
+      //     <Login/>
+      //   } 
+      // </>
     );
   }
 }
