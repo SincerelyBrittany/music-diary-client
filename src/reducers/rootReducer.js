@@ -1,24 +1,22 @@
 import { combineReducers } from "redux";
 // import commentsReducer from "./commentsReducer";
 import searchReducer from "./searchReducer";
-
 import userReducer from './userReducer'
-// import songsReducer from './songsReducer'
+import addSongReducer from './currentSongReducer'
 
 
  
 const appReducer = combineReducers({
   user: userReducer,
-  // songs: songsReducer
+  song: addSongReducer,
   search: searchReducer,
-  // loginform: loginReducer,
   // comments: commentsReducer,
 });
 
 const rootReducer = (state, action) => {
-  // if (action.type === 'LOGOUT') {
-  //   state = undefined
-  // }
+  if (action.type === 'LOGOUT') {
+    state = undefined
+  }
   return appReducer(state, action)
 }
  
