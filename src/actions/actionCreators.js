@@ -7,6 +7,12 @@ export const handleLoginFormChange = (e) => ({
   payload: {name: e.target.name, value: e.target.value}
 })
 
+
+export const handleSongFormChange = (e) => ({
+  type: "SONG_FORM_CHANGE",
+  payload: {name: e.target.name, value: e.target.value}
+})
+
 export const sendSignup = (userData) => {
   return dispatch => {
     // localhost:3000/users
@@ -85,29 +91,48 @@ export const searchForSong = (search) => {
     .then(response => response.json())
     .then(results => {
       //returns an array of objects 
-      debugger
       dispatch({ type: 'ADD_RESULTS', results })
   })
   }
 }
 
 export const selectSong = (song) => {
-  console.log(song)
+  console.log(song, "you are here")
   return dispatch => {
-    dispatch({ type: 'REMOVE_RESULTS' })
-  //   fetch(API + "/songs", {
-  //     method: 'POST', 
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({song: song}),
-  //   })
-  //   .then(response => response.json())
-  //   .then(results => {
-  //     //returns an array of objects 
-  //     debugger
-  //     // dispatch({ type: 'SONG_RESULTS', results })
-  // })
+    // dispatch({ type: 'REMOVE_RESULTS' })
+    fetch(API + "/songs", {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({song: song}),
+    })
+    .then(response => response.json())
+    .then(results => {
+      console.log(results, "song results")
+      //returns an array of objects 
+      dispatch({ type: 'SONG_RESULTS', results })
+  })
+  }
+}
+
+export const songOfTheDay = (song, user, date) => {
+  console.log(song, "you are here")
+  return dispatch => {
+    // dispatch({ type: 'REMOVE_RESULTS' })
+    fetch(API + "/entries", {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({song: song, user: user, date: date}),
+    })
+    .then(response => response.json())
+    .then(results => {
+      console.log(results, "song results")
+      //returns an array of objects 
+      // dispatch({ type: 'SONG_RESULTS', results })
+  })
   }
 }
 
