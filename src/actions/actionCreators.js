@@ -91,10 +91,26 @@ export const searchForSong = (search) => {
   }
 }
 
-// export const reviewFormChange = (e) => ({
-//   type: "REVIEW_FORM_CHANGE",
-//   payload: {name: e.target.name, value: e.target.value}
-// })
+export const selectSong = (song) => {
+  console.log(song)
+  return dispatch => {
+    dispatch({ type: 'REMOVE_RESULTS' })
+  //   fetch(API + "/songs", {
+  //     method: 'POST', 
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({song: song}),
+  //   })
+  //   .then(response => response.json())
+  //   .then(results => {
+  //     //returns an array of objects 
+  //     debugger
+  //     // dispatch({ type: 'SONG_RESULTS', results })
+  // })
+  }
+}
+
 
 export const logout = () => {
   return dispatch => {
