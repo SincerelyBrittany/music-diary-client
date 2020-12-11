@@ -10,7 +10,7 @@ const images = [
     url: 'https://unsplash.com/photos/7AIDE8PrvA0',
     title: 'Add New Entry',
     width: '40%',
-    link: "/newentry",
+    link: "/newSearch",
   },
   {
     url: 'https://unsplash.com/photos/7AIDE8PrvA0',
@@ -156,7 +156,7 @@ const SongCards = (props) => {
 }
 
 const msp = (state) => ({
-  songs: state.songs.songs
+  // songs: state.songs.songs
 })
 
 export default connect(msp)(SongCards)
