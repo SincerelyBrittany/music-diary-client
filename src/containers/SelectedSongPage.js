@@ -10,15 +10,15 @@ let history = useHistory();
 
 const handleSubmit = (event) => {
     event.preventDefault()
-    let date = Date.now()
+    // let date = Date.now()
     const data ={
         song_id: props.song.id,
         user_id: props.user,
-        date: date, 
+        // date: date, 
         description: event.target.description.value
       }
     props.songOfTheDay(data)
-    history.push("/allentries");
+    history.push("/pastentry");
   }
 
 
