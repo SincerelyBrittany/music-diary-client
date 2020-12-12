@@ -30,6 +30,7 @@ class SearchEntry extends Component {
     render(){
         // console.log(this.props, "in the entry page")
         // this.props.history.push('/allentries')
+        const content = this.props.allsongs ? 'no song found' : this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} />);
         return (
             <div>
             <form className="form-inline mt-2mt-md-0" onSubmit={this.handleSubmit}>
@@ -38,8 +39,11 @@ class SearchEntry extends Component {
             </form>
 
             <div className="cards">
-                {this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} />)}
-            </div>
+           
+            {/* {content} */}
+            {this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} />) }             
+            
+                </div>
             </div>
         )
     }
