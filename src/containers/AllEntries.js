@@ -26,6 +26,7 @@ export default class AllEntries extends Component{
                       <h3>Date: {card.update_date}</h3>
                       <h3>Song: {card.song.name}</h3>
                       <h3>Artist: {card.song.artist}</h3>
+                      <img src={card.song.image} alt="Image" />
                 </div>
         })
     } 
