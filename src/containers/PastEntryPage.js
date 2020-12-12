@@ -1,13 +1,77 @@
-import React from 'react'
+import React, {Component, useState, useEffect} from 'react'
+import { connect } from 'react-redux'
+// class OldEntry extends Component{
 
-const OldEntry = (props) => {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//          data: [],
+//         };
+//       }
+     
+//       componentDidMount() {
+//         const api_url = "http://localhost:3000/api/v1/get_user_entries";
+//           fetch(api_url, {
+//             method: 'POST', 
+//             headers: {
+//               'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({user: props.user}),
+//           })
+//           .then(response => response.json())
+//           .then(results => {
+//             console.log(results)
+//         })
+//         }
+      
 
-  return(
-  <div className="cards">
-    <p> We are in Entry </p>
-  </div>
+//   render(){
+//       return(
+//         <div className="card">
+        
+//         </div>
+//       )
+//       }
+//   }
 
-  )
+
+const OldEntry = props => {
+    const [songs, setSongs] = useState([])
+    useEffect(() => {
+      const api_url = "http://localhost:3000/api/v1/get_user_entries";
+          fetch(api_url, {
+            method: 'POST', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({user: props.user}),
+          })
+          .then(response => response.json())
+          .then(results => {
+            console.log(results)
+        })
+      })
+    return(
+
+      <div>
+
+      </div>
+    )
 }
 
-export default OldEntry
+
+
+const msp = (state) => ({
+    user: state.user.id
+  })
+
+function mapDispatchToProps(dispatch){
+    return { 
+        // songOfTheDay: (search) => dispatch(songOfTheDay(search)),
+        // handleSongFormChange: (search) => dispatch(handleSongFormChange(search))
+    }
+}
+
+export default connect(msp, mapDispatchToProps)(OldEntry)
+
+
