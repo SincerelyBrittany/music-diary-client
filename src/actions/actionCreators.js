@@ -116,16 +116,23 @@ export const selectSong = (song) => {
   }
 }
 
-export const songOfTheDay = (song, user, date) => {
-  console.log(song, "you are here")
+export const songOfTheDay = (song) => {
+  // console.log(song, "you are here")
+  // debugger
+  // const data ={
+  //   song_id: song,
+  //   user_id: user,
+  //   date: date, 
+  //   description: description
+  // }
   return dispatch => {
     // dispatch({ type: 'REMOVE_RESULTS' })
     fetch(API + "/entries", {
       method: 'POST', 
       headers: {
-        'Content-Type': 'application/json',
+        'content-type': 'application/json'
       },
-      body: JSON.stringify({song: song, user: user, date: date}),
+      body: JSON.stringify({song: song}),
     })
     .then(response => response.json())
     .then(results => {
