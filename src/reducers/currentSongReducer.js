@@ -1,6 +1,6 @@
 const initialState = {
     results: [],
-    description: "",
+    description: "I do not know how to update this yet, will need to ask for guidance",
   }
   
   const addSongReducer = (state=initialState, action) => {
@@ -16,6 +16,11 @@ const initialState = {
               ...state,
               results: action.results
           }
+      case "SONG_FORM_CHANGE":
+        return {
+          ...state,
+              description: action.description
+        }
       default:
           return state
   }
