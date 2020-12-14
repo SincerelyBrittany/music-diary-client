@@ -7,6 +7,7 @@ import newSearch from './containers/SearchPage'
 import allEntries from './containers/AllEntries'
 import selectedSong from './containers/SelectedSongPage'
 import pastEntry from './containers/PastEntryPage'
+import commentPage from './containers/CommentPage'
 import MainPage from './containers/MainPage'
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path="/newSearch" component={newSearch} />
             <Route exact path="/pastentry" component={pastEntry} />
             <Route exact path="/selectedsong" component={selectedSong} />
+            <Route exact path="/comments" component={commentPage} />
             <Route path="/main" component={MainPage}/>
             <Route path="/" component={MainPage}/>
           </Switch>
