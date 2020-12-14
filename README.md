@@ -1,71 +1,216 @@
-# Getting Started with Create React App
+# Music Diary
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://www.example.com/">
+    <img src="https://github.com/SincerelyBrittany/music-diary-client
+/blob/master/track-your-workout-frontend/styles/workout_img.png" alt="Logo" >
+  </a>
 
-### `yarn start`
+  <h3 align="center"> Track Your Workout</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <p align="center">
+    Do you love music? Do you enjoy the lyrics and writing? If you answered "yes" to both of those questions then you are like me and will love this application. The Music Diary is an application build with React, RSpotify, Genius, and Rails. The application allows you to search for a song of the day and then write a dairy entry. Keep the entries going and see who comments on your diary post! At the end of the year, you will have a list of songs and diary entries to look back on for the year. 
+    <br />
+    <!-- <a href="https://www.example.com/"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />-->
+    <i> <a href=""> </a>Live Site - Coming Soon </i>
+    ·
+    <a href="">View Youtube Demo</a> 
+    ·
+    <a href="">Blog</a> 
+     ·
+    <a href="https://github.com/SincerelyBrittany//music-diary-client
+/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/SincerelyBrittany//music-diary-client
+/issues">Request Feature</a> 
+  </p>
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-### `yarn build`
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-### `yarn eject`
+[![Product Name Screen Shot][product-screenshot]](https://www.example.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This application was built with a Ruby on Rails backend and React frontend. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built With
+* [Ruby-on-Rails](https://guides.rubyonrails.org/)
+* [postgresql](https://www.postgresql.org/)
+* [byebug](https://rubygems.org/gems/byebug/versions/9.0.6)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+*  Love ❤️
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- GETTING STARTED -->
+## Getting Started
 
-## Learn More
+To get the application started you must have ruby and postgresql installed on your computer. Checkout the ruby on rails [getting-started-guide](https://guides.rubyonrails.org/v5.0/getting_started.html) to learn how to install it on your device. If you need to install postgres check out the doumentation [here](https://www.postgresql.org/about/).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
+Other than the gems listed in this app's Gemfile, you will need to have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html) installed on your local machine as well as the ability to install Ruby gems.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+In addition you will need to create an account with Genious and Spotify and save the ids in your .env file. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+GENIUS_CLIENT_ID = "ENTER ID HERE"
+GENIUS_SECRET_ID = "ENTER ID HERE"
+GENIUS_ACCESS_TOKEN = "ENTER ID HERE"
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+SPOTIFY_SECRET_ID = "ENTER ID HERE"
+SPOTIFY_CLIENT_ID = "ENTER ID HERE"
 
-### Making a Progressive Web App
+JWT_KEY = "ENTER ID HERE"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Before running your server, you will need to install the gems and add content to your database manually or you can use the seeds file:
 
-### Advanced Configuration
+To install the gems first cd into <a href="https://github.com/SincerelyBrittany/music-diary-backend"> music-diary-backend  </a> and run the following:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```sh
+bundle install
+```
 
-### Deployment
+To run your migrations and update your db/schema.rb file to match the structure of the database, run the following:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```sh
+rails db:create
+```
 
-### `yarn build` fails to minify
+```sh
+rails db:migrate
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# music-diary-client
+To create data in the database, run the following:
+```sh
+rails db:seed
+```
+
+```sh
+rails s
+```
+and then go to your favorite browser and visit this webpage "http://localhost:3000/api/v1/workouts" 
+
+### Installation
+
+1. Clone the repo
+```sh
+git clone git@github.com:SincerelyBrittany/music-diary-client
+.git
+```
+3. Cd into backend and install the gemfile packages
+```sh
+bundle install
+```
+4. Run rails s
+5. cd into frontend and run npm start
+
+
+<!-- USAGE EXAMPLES -->
+<!-- ## Usage
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+ -->
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/SincerelyBrittany//music-diary-client
+/issues) for a list of proposed features (and known issues).
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+Connect/Follow me:
+
+[![Linkedin][linkedin-shield]][linkedin-url]
+[![Twitter][twitter-shield]][twitter-url]
+[![Dev.to][dev-to-shield]][dev-to-url]
+
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+* [Youtube](https://youtube.com)
+* [Google](https://google.com)
+* [Flatiron School](https://flatironschool.com/)
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/SincerelyBrittany/music-diary-client
+.svg?style=flat-square
+[contributors-url]: https://github.com/SincerelyBrittany/music-diary-client
+/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/SincerelyBrittany/music-diary-client
+.svg?style=flat-square
+[forks-url]: https://github.com/SincerelyBrittany//music-diary-client
+/network/members
+[stars-shield]: https://img.shields.io/github/stars/SincerelyBrittany/music-diary-client
+.svg?style=flat-square
+[stars-url]: https://github.com/SincerelyBrittany/music-diary-client
+/stargazers
+[issues-shield]: https://img.shields.io/github/issues/SincerelyBrittany/music-diary-client
+.svg?style=flat-square
+[issues-url]: https://github.com/SincerelyBrittany/music-diary-client
+/issues
+[license-shield]: https://img.shields.io/github/license/SincerelyBrittany/music-diary-client
+.svg?style=flat-square
+[license-url]: https://github.com/SincerelyBrittany/music-diary-client
+/blob/master/LICENSE
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/sincerelybrittany/
+[twitter-shield]:https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FSincerelyBrittt
+[twitter-url]: https://twitter.com/SincerelyBrittt
+[dev-to-url]: https://dev.to/sincerelybrittany
+[dev-to-shield]:https://img.shields.io/badge/-Dev.to-black.svg?style=flat-square&logo=dev.to&colorB=555
+[product-screenshot]: https://github.com/SincerelyBrittany/music-diary-client
+
