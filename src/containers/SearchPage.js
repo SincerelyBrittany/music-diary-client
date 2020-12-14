@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { connect } from 'react-redux'
-import { searchForSong, selectSong } from '../actions/actionCreators'
+import { searchForSong } from '../actions/actionCreators'
 import SongCard from '../components/SongCard'
 
 class SearchEntry extends Component {
