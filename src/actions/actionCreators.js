@@ -150,7 +150,7 @@ export const viewComments = (id) => {
     .then(results => {
       console.log(results, "this is the comments results")
       // //returns an array of objects 
-      // dispatch({ type: 'ADD_RESULTS', results })
+      dispatch({ type: 'ADD_COMMENTS', results })
   })
   }
 }
