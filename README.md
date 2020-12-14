@@ -119,7 +119,7 @@ rails db:seed
 ```sh
 rails s
 ```
-and then go to your favorite browser and visit this webpage "http://localhost:3000/api/v1/workouts" 
+and then go to your favorite browser and visit this webpage "http://localhost:3000/api/v1/main" 
 
 ### Installation
 
@@ -148,8 +148,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/SincerelyBrittany//music-diary-client
-/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/SincerelyBrittany//music-diary-client/issues) for a list of proposed features (and known issues).
 
 
 
