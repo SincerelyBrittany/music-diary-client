@@ -16,7 +16,7 @@
 /blob/master/track-your-workout-frontend/styles/workout_img.png" alt="Logo" >
   </a>
 
-  <h3 align="center"> Track Your Workout</h3>
+  <h3 align="center"> Music Diary </h3>
 
   <p align="center">
     Do you love music? Do you enjoy the lyrics and writing? If you answered "yes" to both of those questions then you are like me and will love this application. The Music Diary is an application build with React, RSpotify, Genius, and Rails. The application allows you to search for a song of the day and then write a dairy entry. Keep the entries going and see who comments on your diary post! At the end of the year, you will have a list of songs and diary entries to look back on for the year. 
@@ -186,26 +186,16 @@ Connect/Follow me:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/SincerelyBrittany/music-diary-client
-.svg?style=flat-square
-[contributors-url]: https://github.com/SincerelyBrittany/music-diary-client
-/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/SincerelyBrittany/music-diary-client
-.svg?style=flat-square
-[forks-url]: https://github.com/SincerelyBrittany//music-diary-client
-/network/members
-[stars-shield]: https://img.shields.io/github/stars/SincerelyBrittany/music-diary-client
-.svg?style=flat-square
-[stars-url]: https://github.com/SincerelyBrittany/music-diary-client
-/stargazers
-[issues-shield]: https://img.shields.io/github/issues/SincerelyBrittany/music-diary-client
-.svg?style=flat-square
-[issues-url]: https://github.com/SincerelyBrittany/music-diary-client
-/issues
-[license-shield]: https://img.shields.io/github/license/SincerelyBrittany/music-diary-client
-.svg?style=flat-square
-[license-url]: https://github.com/SincerelyBrittany/music-diary-client
-/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/SincerelyBrittany/music-diary-client.svg?style=flat-square
+[contributors-url]: https://github.com/SincerelyBrittany/music-diary-client/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/SincerelyBrittany/music-diary-client.svg?style=flat-square
+[forks-url]: https://github.com/SincerelyBrittany//music-diary-client/network/members
+[stars-shield]: https://img.shields.io/github/stars/SincerelyBrittany/music-diary-client.svg?style=flat-square
+[stars-url]: https://github.com/SincerelyBrittany/music-diary-client/stargazers
+[issues-shield]: https://img.shields.io/github/issues/SincerelyBrittany/music-diary-client.svg?style=flat-square
+[issues-url]: https://github.com/SincerelyBrittany/music-diary-client/issues
+[license-shield]: https://img.shields.io/github/license/SincerelyBrittany/music-diary-client.svg?style=flat-square
+[license-url]: https://github.com/SincerelyBrittany/music-diary-client/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/sincerelybrittany/
 [twitter-shield]:https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FSincerelyBrittt
