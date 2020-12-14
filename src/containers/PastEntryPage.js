@@ -20,7 +20,7 @@ const OldEntry = props => {
           setSongs(response);
       });
 
-      }, [])
+      })
 
       console.log(songs, "this is songs")
 
