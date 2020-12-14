@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import { viewComments } from '../actions/actionCreators'
 
-
-export default class AllEntries extends Component{
+class AllEntries extends Component{
 
     constructor(props) {
         super(props);
@@ -18,6 +19,14 @@ export default class AllEntries extends Component{
           // .then(data => console.log(data));
       }
 
+      handleClick = (e) => {
+          console.log("here")
+          let id = e.target.dataset.id
+          this.props.viewComments(id)
+          this.props.history.push("/comments")
+
+      }
+
       renderEntries(){
         console.log(this.state.data, "this is state")
         return this.state.data.map((card) => {
@@ -27,6 +36,7 @@ export default class AllEntries extends Component{
                       <h3>Song: {card.song.name}</h3>
                       <h3>Artist: {card.song.artist}</h3>
                       <img src={card.song.image} alt="Image" />
+                      <button data-id={card.id} onClick={this.handleClick}> View All Comments/ Comment on Diary Entry  </button>
                 </div>
         })
     } 
@@ -41,3 +51,9 @@ export default class AllEntries extends Component{
             )
         }
     }
+
+    function mapDispatchToProps(dispatch){
+        return { viewComments: (id) => dispatch(viewComments(id)) }
+    }
+    
+    export default connect(null, mapDispatchToProps)(AllEntries)
