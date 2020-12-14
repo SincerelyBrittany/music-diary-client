@@ -125,8 +125,7 @@ and then go to your favorite browser and visit this webpage "http://localhost:30
 
 1. Clone the repo
 ```sh
-git clone git@github.com:SincerelyBrittany/music-diary-client
-.git
+git clone git@github.com:SincerelyBrittany/music-diary-client.git
 ```
 3. Cd into backend and install the gemfile packages
 ```sh
