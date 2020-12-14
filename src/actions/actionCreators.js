@@ -117,14 +117,6 @@ export const selectSong = (song) => {
 }
 
 export const songOfTheDay = (song) => {
-  // console.log(song, "you are here")
-  // debugger
-  // const data ={
-  //   song_id: song,
-  //   user_id: user,
-  //   date: date, 
-  //   description: description
-  // }
   return dispatch => {
     // dispatch({ type: 'REMOVE_RESULTS' })
     fetch(API + "/entries", {
@@ -139,6 +131,26 @@ export const songOfTheDay = (song) => {
       console.log(results, "song results")
       //returns an array of objects 
       // dispatch({ type: 'SONG_RESULTS', results })
+  })
+  }
+}
+
+
+export const viewComments = (id) => {
+  return dispatch => {
+    // dispatch({ type: 'START_SEARCH' })
+    fetch(API + `/entries/${id}/comments`, {
+      method: 'GET', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // body: JSON.stringify({id: id}),
+    })
+    .then(response => response.json())
+    .then(results => {
+      console.log(results, "this is the comments results")
+      // //returns an array of objects 
+      // dispatch({ type: 'ADD_RESULTS', results })
   })
   }
 }
