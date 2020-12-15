@@ -1,6 +1,7 @@
   
   const initialState = {
     results: [],
+    id: []
   }
 
   const emptyState = {
@@ -16,6 +17,11 @@
               ...state,
               results: []
           }
+          case "ADD_COMMENT_ID":
+            return {
+                ...state,
+                id: action.results
+            }
       case "ADD_COMMENTS":
           return {
               ...state,
