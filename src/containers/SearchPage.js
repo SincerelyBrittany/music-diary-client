@@ -32,9 +32,9 @@ class SearchEntry extends Component {
         // this.props.history.push('/allentries')
         const content = this.props.allsongs ? 'no song found' : this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} />);
         return (
-            <div>
+            <div className="container">
             <form className="form-inline mt-2mt-md-0" onSubmit={this.handleSubmit}>
-                <input className="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search" onChange={this.handleChange} value={this.state.search}/>
+                <input className="form-control mr-sm-2 search" type="text" name="search" placeholder="Search" aria-label="Search" onChange={this.handleChange} value={this.state.search}/>
                 <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
 
