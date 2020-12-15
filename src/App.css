@@ -96,7 +96,11 @@ body {
   border-radius: 10px;
 } 
 
-
+.search{
+  width: 300px;
+  height: 30px;
+  font-size:14pt;
+}
 button {
 	box-shadow: 3px 4px 0px 0px #899599;
 	background:linear-gradient(to bottom, #ededed 5%, #e6b5e6 100%);
