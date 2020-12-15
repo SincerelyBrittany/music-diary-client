@@ -19,7 +19,7 @@ class App extends Component {
   }
   render(){
     return (
-      <>
+      <div className="container">
         <h1>Music Diary</h1>
         {this.props.user.id
         ?
@@ -38,7 +38,7 @@ class App extends Component {
          :
           <Login/>
         } 
-      </>
+      </div>
     );
   }
 }
