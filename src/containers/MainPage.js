@@ -28,13 +28,15 @@ const images = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    // display: '',
+    // flexWrap: 'wrap',
+    display: "flex",
+    // flexWrap: "wrap",
     minWidth: 300,
     width: '100%',
   },
   image: {
-    position: 'relative',
+    // position: 'relative',
     height: 200,
     [theme.breakpoints.down('xs')]: {
       width: '100% !important', // Overrides inline-style
