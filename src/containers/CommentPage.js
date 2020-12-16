@@ -2,7 +2,7 @@ import React, { useRef, Component  } from 'react';
 import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import CommentCard from '../components/CommentsCard'
-import { songOfTheDay, handleSongFormChange } from '../actions/actionCreators'
+import { addComment } from '../actions/actionCreators'
 
 const Comments = (props) => {
 const audioRef = useRef()
@@ -22,42 +22,53 @@ let history = useHistory();
 //   }
 
 // const {content} = props
-const handleClick = (event) => {
+const handleSubmit = (event) => {
   event.preventDefault()
   // let date = Date.now()
   const data ={
       user_id: props.user,
-      entry_id: props.entry_id
+      entry_id: parseInt(props.entry_id),
+      content: event.target.comment.value
     }
-
-    console.log(props, "this is your data bitch")
-  // props.songOfTheDay(data)
-  // history.push("/pastentry");
+    console.log(data, "props in your comments page")
+    debugger
+    // props.addComment(data)
+  history.push("/comments");
 
 }
 
+const content = () => {
+  
+}
 
-  console.log(props.comments)
 
   return(
      <div className="container card">
-       {props.comments.map(comment => <CommentCard key={comment.id} {...comment} />)}
-       <button onClick={handleClick}> Add a comment </button>
-    </div>
+       {props.comments.length !== 0 ? 
+       props.comments.map(comment => <CommentCard key={comment.id} {...comment} />)
+         : "Nothing here" }
+    
+       <form onSubmit={handleSubmit}>
+                <label>
+                Comment Here 
+                <input type="text" name="comment" />
+                </label>
+                <input type="submit" className="submit" value="Submit" />
+            </form>
 
-  
+        </div>
   )
 }
 
 const msp = (state) => ({
     user: state.user.id,
     comments: state.comments.results,
-    // entry_id: state.comments[0]
+    entry_id: state.comments.id
   })
 
 function mapDispatchToProps(dispatch){
     return { 
-
+      addComment: (id) => dispatch(addComment(id)),
     }
 }
 
