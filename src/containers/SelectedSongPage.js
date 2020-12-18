@@ -32,13 +32,13 @@ const handleSubmit = (event) => {
             <audio controls ref={audioRef}>
             <source src={preview} type='audio/mpeg' />
             </audio>
-            <button data-tag={spotify_id}> Pick this song for the day </button>
+            {/* <button data-tag={spotify_id}> Pick this song for the day </button> */}
             <form onSubmit={handleSubmit}>
                 <label>
                 Diary Entry:
                 <textarea value={props.description} name="description" onChange={props.handleSongFormChange} />
                 </label>
-                <input type="submit" value="Submit" />
+                <input type="submit" className="submit" value="Submit" />
             </form>
     </div>
 
