@@ -3,6 +3,7 @@ import commentsReducer from "./commentsReducer";
 import searchReducer from "./searchReducer";
 import userReducer from './userReducer'
 import addSongReducer from './currentSongReducer'
+import EntryReducer from './entryReducer'
 import entriesReducer from './entriesReducer'
 import loadingReducer from './loadingReducer'
 
@@ -14,6 +15,7 @@ const appReducer = combineReducers({
   search: searchReducer,
   comments: commentsReducer,
   entries: entriesReducer, 
+  entry_id: EntryReducer,
   loading: loadingReducer,
 });
 
