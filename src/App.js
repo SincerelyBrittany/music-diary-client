@@ -3,6 +3,7 @@ import './App.css';
 import Login from './components/Login'
 import { autoLogin, logout } from './actions/actionCreators'
 // import Navbar from './containers/Navbar'
+import LoadingContainer from './containers/LoadingContainer'
 import newSearch from './containers/SearchPage'
 import allEntries from './containers/AllEntries'
 import selectedSong from './containers/SelectedSongPage'
@@ -18,7 +19,15 @@ class App extends Component {
     localStorage.token && this.props.autoLogin()
   }
   render(){
-    return (
+  //   if (this.props.loading) {
+  //     return (
+  //         <div> 
+  //             <h1> Loading </h1>
+  //             <LoadingContainer/>
+  //         </div>
+  //     )
+  // } else 
+  return (
       <div className="container">
         <h1>Music Diary</h1>
         {this.props.user.id
@@ -43,7 +52,10 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  loading: state.loading,
+  user: state.user, 
 
-const mapStateToProps = (state) => ({user: state.user})
+})
 
 export default connect(mapStateToProps, { autoLogin, logout })(App);
