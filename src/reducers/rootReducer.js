@@ -4,6 +4,7 @@ import searchReducer from "./searchReducer";
 import userReducer from './userReducer'
 import addSongReducer from './currentSongReducer'
 import entriesReducer from './entriesReducer'
+import loadingReducer from './loadingReducer'
 
 
  
@@ -12,7 +13,8 @@ const appReducer = combineReducers({
   song: addSongReducer,
   search: searchReducer,
   comments: commentsReducer,
-  entries: entriesReducer
+  entries: entriesReducer, 
+  loading: loadingReducer,
 });
 
 const rootReducer = (state, action) => {

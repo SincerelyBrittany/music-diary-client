@@ -2,6 +2,7 @@ import { Component } from "react"
 import { connect } from 'react-redux'
 import { searchForSong } from '../actions/actionCreators'
 import SongCard from '../components/SongCard'
+import LoadingContainer from './LoadingContainer'
 
 class SearchEntry extends Component {
 
@@ -17,32 +18,25 @@ class SearchEntry extends Component {
         event.preventDefault()
         this.props.searchForSong(event.target.search.value)
     }
-
-    // handleClick = (event) => {
-    //     console.log("here", event)
-    //     let spotify_id = event.target.dataset.tag
-    //     // let user = current_user 
-    //     let date = Date.now()
-    //     debugger
-    //     // this.props.selectSong(spotify_id)
-    // }
-
+    
     render(){
-        // console.log(this.props, "in the entry page")
-        // this.props.history.push('/allentries')
-        const content = this.props.allsongs ? 'no song found' : this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} />);
+        const content = !this.props.allsongs || this.props.allsongs.status === 500 ? 'Error: Please search for a different song or artist' : this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} />);
+        if (this.props.loading) {
+            return (
+                <div> 
+                    <h1> Searching </h1>
+                    <LoadingContainer/>
+                </div>
+            )
+        } else 
         return (
             <div className="container">
             <form className="form-inline mt-2mt-md-0" onSubmit={this.handleSubmit}>
                 <input className="form-control mr-sm-2 search" type="text" name="search" placeholder="Search" aria-label="Search" onChange={this.handleChange} value={this.state.search}/>
                 <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
-
             <div className="cards">
-           
-            {/* {content} */}
-            {this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} />) }             
-            
+                    {content}
                 </div>
             </div>
         )
@@ -50,6 +44,7 @@ class SearchEntry extends Component {
 }
 
 const msp = (state) => ({
+    loading: state.loading,
     allsongs: state.search.results
   })
 
