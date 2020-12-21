@@ -16,6 +16,7 @@ export const handleSongFormChange = (e) => ({
 export const sendSignup = (userData) => {
   return dispatch => {
     // localhost:3000/users
+    dispatch({ type: 'START_LOADING' })
     fetch(API + "/users", {
       method: 'POST', // or 'PUT'
       headers: {
@@ -30,6 +31,7 @@ export const sendSignup = (userData) => {
       type: "SET_USER",
       payload: {user: response.user}
     })
+    dispatch({ type: 'STOP_LOADING'})
   })
   }
 }
@@ -39,6 +41,7 @@ export const sendLogin = (userData) => {
     console.log("here", API + "/login", userData)
   return dispatch => {
     // localhost:3000/users
+    dispatch({ type: 'START_LOADING' })
     fetch(API + "/login", {
       method: 'POST', // or 'PUT'
       headers: {
@@ -53,6 +56,7 @@ export const sendLogin = (userData) => {
       type: "SET_USER",
       payload: {user: response.user}
     })
+    dispatch({ type: 'STOP_LOADING'})
   })
   }
 }
@@ -60,6 +64,7 @@ export const sendLogin = (userData) => {
 export const autoLogin = () => {
   return dispatch => {
     // localhost:3000/users
+    dispatch({ type: 'START_LOADING' })
     fetch(API + "/get_current_user", {
       method: 'POST', // or 'PUT'
       headers: {
@@ -73,6 +78,7 @@ export const autoLogin = () => {
       type: "SET_USER",
       payload: {user: response.user}
     })
+    dispatch({ type: 'STOP_LOADING'})
   })
   }
 }
@@ -80,6 +86,7 @@ export const autoLogin = () => {
 
 export const searchForSong = (search) => {
   return dispatch => {
+    dispatch({ type: 'START_LOADING' })
     dispatch({ type: 'START_SEARCH' })
     fetch(API + "/songs/search", {
       method: 'POST', 
@@ -92,6 +99,7 @@ export const searchForSong = (search) => {
     .then(results => {
       //returns an array of objects 
       dispatch({ type: 'ADD_RESULTS', results })
+      dispatch({ type: 'STOP_LOADING'})
   })
   }
 }
@@ -116,9 +124,24 @@ export const selectSong = (song) => {
   }
 }
 
+export const getAllEntries = () => {
+  return dispatch => {
+    dispatch({ type: 'START_LOADING' })
+     const api_url = "http://localhost:3000/api/v1/entries";
+        fetch(api_url)
+          .then(response => response.json())
+          .then(results => {
+            // console.log(results, "entries results")
+            //returns an array of objects 
+            dispatch({ type: 'DISPLAY_ALL_ENTRY_RESULTS', results })
+            dispatch({ type: 'STOP_LOADING' })
+        })
+      }
+  }
+ 
 export const songOfTheDay = (song) => {
   return dispatch => {
-    // dispatch({ type: 'REMOVE_RESULTS' })
+    dispatch({ type: 'REMOVE_RESULTS' })
     fetch(API + "/entries", {
       method: 'POST', 
       headers: {
@@ -130,7 +153,7 @@ export const songOfTheDay = (song) => {
     .then(results => {
       console.log(results, "song results")
       //returns an array of objects 
-      // dispatch({ type: 'SONG_RESULTS', results })
+      dispatch({ type: 'SONG_RESULTS', results })
   })
   }
 }
@@ -152,7 +175,30 @@ export const viewComments = (id) => {
       // //returns an array of objects 
       console.log(id, "this is id")
       dispatch({ type: 'ADD_COMMENT_ID', id })
+      dispatch({ type: 'SET_COMMENTS', results })
+  })
+  }
+}
+
+
+export const addComment = (data) => {
+  return dispatch => {
+    // dispatch({ type: 'REMOVE_RESULTS' })
+      // dispatch({ type: 'REMOVE_COMMENTS'})
+    fetch(API + `/entries/${data.entry_id}/comments`, {
+      method: 'POST', 
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({data: data}),
+    })
+    .then(response => response.json())
+    .then(results => {
+      console.log(results, "song results")
+      //returns an array of objects 
+      // dispatch({ type: 'REMOVE_COMMENTS', results })
       dispatch({ type: 'ADD_COMMENTS', results })
+      dispatch({ type: 'SET_COMMENTS', results })
   })
   }
 }
