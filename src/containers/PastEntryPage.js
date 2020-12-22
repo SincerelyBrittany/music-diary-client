@@ -46,7 +46,9 @@ class OldEntry extends Component {
       };
     }
  
+    //move state to redux store 
   componentDidMount() {
+    console.log("mounting")
     const api_url = "http://localhost:3000/api/v1/get_user_entries";
         fetch(api_url, {
           method: 'POST', 
@@ -56,25 +58,15 @@ class OldEntry extends Component {
           body: JSON.stringify({user: this.props.user}),
         })
         .then(response => response.json())
-      //   .then(results => {
-      //     console.log(results)
-      // })
-      // .then(response => {
       .then(data => this.setState({ data }));
-        // setSongs(response);
-    // });
-
     }
 
 render(){
     console.log(this.state.data, " this is the data given back")
     const content = this.state.data.length !== 0 ? this.state.data.map(song=> (<PastSongCard key={song.spotify_id} {...song} /> )) : 'no song found'
   return(
-
-    <div>
-      <ul>
+    <div className="cards">
        {content}
-      </ul>
     </div>
   )
 }
