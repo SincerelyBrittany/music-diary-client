@@ -198,7 +198,6 @@ export const addComment = (data) => {
       //returns an array of objects 
       // dispatch({ type: 'REMOVE_COMMENTS', results })
       dispatch({ type: 'ADD_COMMENTS', results })
-      dispatch({ type: 'SET_COMMENTS', results })
   })
   }
 }
