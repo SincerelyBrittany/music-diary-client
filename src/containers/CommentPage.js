@@ -25,14 +25,15 @@ let history = useHistory();
 const handleSubmit = (event) => {
   event.preventDefault()
   // let date = Date.now()
+
   const data ={
       user_id: props.user,
-      entry_id: parseInt(props.entry_id),
+      entry_id: parseInt(props.entry_id.entry_id),
       content: event.target.comment.value
     }
     console.log(data, "props in your comments page")
-    debugger
-    // props.addComment(data)
+    // debugger
+    props.addComment(data)
   history.push("/comments");
 
 }
@@ -43,11 +44,12 @@ const content = () => {
 
 
   return(
-     <div className="container card">
-       {props.comments.length !== 0 ? 
-       props.comments.map(comment => <CommentCard key={comment.id} {...comment} />)
-         : "Nothing here" }
-    
+     <div className="container">
+       <div className="comment-cards">
+          {!props.comments || props.comments.length === 0 ? 
+            <p>Nothing Here </p>
+            : props.comments && props.comments.map(comment => <CommentCard key={comment.id} {...comment} />) }
+      </div>
        <form onSubmit={handleSubmit}>
                 <label>
                 Comment Here 
@@ -63,7 +65,7 @@ const content = () => {
 const msp = (state) => ({
     user: state.user.id,
     comments: state.comments.results,
-    entry_id: state.comments.id
+    entry_id: state.entry_id
   })
 
 function mapDispatchToProps(dispatch){

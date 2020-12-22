@@ -17,6 +17,7 @@
           return {
               ...state,
               // results: []
+              // results: action.results
               results: action.results
           }
           // case "ADD_COMMENT_ID":
@@ -24,11 +25,12 @@
           //     ...state,
           //     entry_id: action.id
           //   }
-      // case "ADD_COMMENTS":
-      //     return {
-      //         ...state,
-      //         results: action.results
-      //     }
+      case "ADD_COMMENTS":
+          return {
+              ...state,
+              
+              results: [...state.results, action.results]
+          }
       //     case "REMOVE_COMMENTS":
       //       return {
       //         state: emptyState
