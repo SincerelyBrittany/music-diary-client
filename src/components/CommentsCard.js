@@ -11,9 +11,9 @@ const CommentCard = (props) => {
     const {content} = props
 
 
-      console.log(props, "this is props")
+      // console.log(props, "this is props")
   return (
-    <div className="card" >
+    <div className="comment-card" >
             <h1>User: {props.user.username}</h1>
             <h1>Commented: {content}</h1>
           
