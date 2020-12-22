@@ -3,15 +3,7 @@ import { connect } from 'react-redux';
 
 
 const CommentCard = (props) => {
-
-
-  console.log(props.comments)
-
-
     const {content} = props
-
-
-      // console.log(props, "this is props")
   return (
     <div className="comment-card" >
             <h1>User: {props.user.username}</h1>
@@ -20,10 +12,4 @@ const CommentCard = (props) => {
     </div>
   )
 }
-
-
-function mapDispatchToProps(dispatch){
-
-}
-
 export default connect(null, null)(CommentCard)
