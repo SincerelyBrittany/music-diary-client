@@ -1,35 +1,21 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { viewComments } from '../actions/actionCreators'
+import { viewComments, getAllEntries } from '../actions/actionCreators'
+import LoadingContainer from './LoadingContainer'
 
 class AllEntries extends Component{
-
-    constructor(props) {
-        super(props);
-        this.state = {
-         data: [],
-        };
-      }
-     
       componentDidMount() {
-        const api_url = "http://localhost:3000/api/v1/entries";
-        fetch(api_url)
-          .then(response => response.json())
-          .then(data => this.setState({ data }));
-          // .then(data => console.log(data));
+          this.props.getAllEntries()
       }
 
       handleClick = (e) => {
-          console.log("here")
           let id = e.target.dataset.id
           this.props.viewComments(id)
           this.props.history.push("/comments")
-
       }
 
       renderEntries(){
-        console.log(this.state.data, "this is state")
-        return this.state.data.map((card) => {
+        return this.props.entries.results.map((card) => {
             return <div className="card">
                       <h3>Username: {card.user.username}</h3>
                       <h3>Date: {card.update_date}</h3>
@@ -42,7 +28,13 @@ class AllEntries extends Component{
     } 
 
       render(){
-            return (
+          console.log(this.props.entries.results, "this is props in entry")
+        //   if (this.props.loading) {
+        //     return (
+        //         <LoadingContainer/>
+        //     )
+        // } else 
+        return (
                 <div>
                     <div className="cards">
                         {this.renderEntries()}
@@ -52,8 +44,17 @@ class AllEntries extends Component{
         }
     }
 
+
+const msp = (state) => ({
+    entries: state.entries
+  })
+
+
     function mapDispatchToProps(dispatch){
-        return { viewComments: (id) => dispatch(viewComments(id)) }
+        return { 
+            viewComments: (id) => dispatch(viewComments(id)),
+            getAllEntries: () => dispatch(getAllEntries())
+        }
     }
     
-    export default connect(null, mapDispatchToProps)(AllEntries)
+    export default connect(msp, mapDispatchToProps)(AllEntries)
