@@ -38,6 +38,7 @@ class AllEntries extends Component{
         return (
                 <div>
                      <Nav />
+                     <h1>Music Diary</h1>
                     <div className="cards">
                         {this.renderEntries()}
                     </div>

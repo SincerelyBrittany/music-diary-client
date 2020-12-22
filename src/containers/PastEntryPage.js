@@ -31,6 +31,7 @@ render(){
   return(
     <>
        < Nav />
+       <h1>Music Diary</h1>
         <div className="cards">
           {content}
         </div>

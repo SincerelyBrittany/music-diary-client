@@ -32,7 +32,9 @@ class SearchEntry extends Component {
         } else 
         return (
             <div className="container">
+                
                 <Nav />
+                <h1>Music Diary</h1>
             <form className="form-inline mt-2mt-md-0" onSubmit={this.handleSubmit}>
                 <input className="form-control mr-sm-2 search" type="text" name="search" placeholder="Search" aria-label="Search" onChange={this.handleChange} value={this.state.search}/>
                 <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>

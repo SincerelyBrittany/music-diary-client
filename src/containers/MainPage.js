@@ -105,6 +105,8 @@ const useStyles = makeStyles((theme) => ({
 const SongCards = (props) => {
   const classes = useStyles();
   return(
+    <>
+      <h1>Music Diary</h1>
   <div className="cards">
     {/* <Link to="/newentry" ><div className="btn nav-link">Add new Entry </div></Link>
     <Link to="/pastentry" ><div className="btn nav-link">Old Entry </div></Link>
@@ -154,6 +156,7 @@ const SongCards = (props) => {
 
 
   </div>
+  </>
   )
 }
 
