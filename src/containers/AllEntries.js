@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { viewComments, getAllEntries } from '../actions/actionCreators'
 import LoadingContainer from './LoadingContainer'
+import Nav from '../components/Navbar'
 
 class AllEntries extends Component{
       componentDidMount() {
@@ -36,6 +37,7 @@ class AllEntries extends Component{
         // } else 
         return (
                 <div>
+                     <Nav />
                     <div className="cards">
                         {this.renderEntries()}
                     </div>
