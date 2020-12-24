@@ -1,4 +1,4 @@
-import React, {Component, useState, useEffect} from 'react'
+import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import PastSongCard from '../components/PastSongCard'
 import Nav from '../components/Navbar'
