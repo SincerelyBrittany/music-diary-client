@@ -7,11 +7,14 @@ const SongCard = (props) => {
     let history = useHistory();
     const audioRef = useRef()
     const {name, artist, image, preview, spotify_id, lyrics} = props
-
       const handleClick = (event) => {
         props.selectSong(props)
         history.push("/selectedsong");
       }
+
+      const content = preview !== null ? {preview} : false;
+
+      console.log(preview, content, "this is the preview")
 
   return (
     <div className="card" >
@@ -21,9 +24,10 @@ const SongCard = (props) => {
         <a href={lyrics} className='new-line'>Link to {name} Lyrics</a>
       <br></br>
       <br />
+      {content ? 
       <audio controls ref={audioRef} className='new-line'>
       <source src={preview} className='new-line' type='audio/mpeg' />
-      </audio>
+      </audio> : "no audio preview found"}
       <br />
       <br></br>
       <button className="card-btn" onClick={handleClick} data-tag={spotify_id}> Pick this song for the day </button>
