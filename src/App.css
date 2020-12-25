@@ -200,9 +200,9 @@ button:active {
 
 .modal-main {
   position:fixed;
-  background: yellow;
+  background-color: #fdfdfda8;
   width: 40%;
-  height: auto;
+  height: 80%;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
@@ -218,7 +218,8 @@ button:active {
 
   .btn1 {
     border: 0;
-    background: #78f89f;
+    background:linear-gradient(to bottom, #ededed 5%, #e6b5e6 100%);
+    background-color:#ededed;
     border-radius: 5px;
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
