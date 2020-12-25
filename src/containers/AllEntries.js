@@ -2,9 +2,18 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { viewComments, getAllEntries } from '../actions/actionCreators'
 import LoadingContainer from './LoadingContainer'
+import Modal from "../components/Modal";
 import Nav from '../components/Navbar'
 
 class AllEntries extends Component{
+
+    constructor(props) {
+            super(props);
+            this.state = {
+            show: false,
+            entry: {}
+            }
+        }
       componentDidMount() {
           this.props.getAllEntries()
       }
@@ -17,14 +26,30 @@ class AllEntries extends Component{
 
       handleEntryClick = (e) => {
         let currentID = e.target.dataset.id
-        console.log(this.props, "you are in entries looking at the id")
-        const result = this.props.entries.results.filter(entry => entry.id == currentID )
-        console.log(result[0])
-        debugger
+        const result = this.props.entries.results.filter(entry => entry.id === parseInt(currentID))
         let description = result[0].description
         let user = result[0].user.username
         let date = result[0].update_date
+        let data = {
+            user,
+            date,
+            description
+        }
+
+        this.setState({
+            show: !this.state.show,
+            entry: data
+          })
+
+        //display modal with information!
     }
+
+    onClose = e => {
+        this.setState({
+            show: !this.state.show,
+          })
+    };
+
 
       renderEntries(){
         return this.props.entries.results.map((card) => {
@@ -52,6 +77,20 @@ class AllEntries extends Component{
                      <h1>Music Diary</h1>
                     <div className="cards">
                         {this.renderEntries()}
+                        <Modal show={this.state.show} entry={this.state.entry} close={this.onClose}>
+                        <>
+                                {/* <button
+                                className="btn1"
+                                onClick={e => {
+                                    console.log(e)
+                                    this.onClose(e);
+                                }}
+                            >
+                                Close
+                            </button> */}
+                    </>
+            
+                    </Modal>
                     </div>
                 </div>
             )
