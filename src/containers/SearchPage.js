@@ -21,7 +21,7 @@ class SearchEntry extends Component {
     }
     
     render(){
-        const content = !this.props.allsongs || this.props.allsongs.status === 500 ? 'Error: Please search for a different song or artist' : this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} />);
+        const content = !this.props.allsongs || this.props.allsongs.status === 500 ? 'Please search for a different song or artist' : this.props.allsongs.map(song => <SongCard key={song.spotify_id} {...song} />);
         if (this.props.loading) {
             return (
                 <div> 

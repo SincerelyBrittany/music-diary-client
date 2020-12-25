@@ -107,7 +107,7 @@ export const searchForSong = (search) => {
 export const selectSong = (song) => {
   console.log(song, "you are here")
   return dispatch => {
-    // dispatch({ type: 'REMOVE_RESULTS' })
+    dispatch({ type: 'REMOVE_RESULTS' })
     fetch(API + "/songs", {
       method: 'POST', 
       headers: {
