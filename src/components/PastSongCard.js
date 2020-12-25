@@ -13,7 +13,7 @@ const PastSongCard = (props) => {
         props.selectSong(props)
         history.push("/selectedsong");
       }
-     
+    const content = preview !== null ? {preview} : false;
   return (
     <div className="card" >
       <img src={image} alt={name}/><br/>
@@ -23,9 +23,10 @@ const PastSongCard = (props) => {
         <a href={lyrics} className='new-line'>Link to {name} Lyrics</a>
       <br></br>
       <br />
+      {content ? 
       <audio controls ref={audioRef} className='new-line'>
       <source src={preview} className='new-line' type='audio/mpeg' />
-      </audio>
+      </audio> : "no audio preview found"}
       <br />
       <br></br>
       <p> Entry: {props.description} </p>

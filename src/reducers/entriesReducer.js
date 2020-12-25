@@ -3,9 +3,9 @@
     results: [],
   }
 
-  const emptyState = {
-    results: [],
-  }
+  // const emptyState = {
+  //   results: [],
+  // }
 
   
   const entriesReducer = (state=initialState, action) => {
@@ -21,10 +21,10 @@
               ...state,
               results: action.results
           }
-    case "REMOVE_COMMENTS":
-            return {
-              state: emptyState
-            }
+    // case "REMOVE_COMMENTS":
+    //         return {
+    //           state: emptyState
+    //         }
       default:
           return state
   }
