@@ -12,8 +12,7 @@
 <br />
 <p align="center">
   <a href="https://www.example.com/">
-    <img src="https://github.com/SincerelyBrittany/music-diary-client
-/blob/master/track-your-workout-frontend/styles/workout_img.png" alt="Logo" >
+    <img src="https://github.com/SincerelyBrittany/music-diary-client/blob/main/src/images/main_photo.png" alt="Logo" >
   </a>
 
   <h3 align="center"> Music Diary </h3>
@@ -83,6 +82,7 @@ Other than the gems listed in this app's Gemfile, you will need to have [Ruby](h
 
 In addition you will need to create an account with Genious and Spotify and save the ids in your .env file. 
 
+```sh
 GENIUS_CLIENT_ID = "ENTER ID HERE"
 GENIUS_SECRET_ID = "ENTER ID HERE"
 GENIUS_ACCESS_TOKEN = "ENTER ID HERE"
@@ -92,6 +92,7 @@ SPOTIFY_SECRET_ID = "ENTER ID HERE"
 SPOTIFY_CLIENT_ID = "ENTER ID HERE"
 
 JWT_KEY = "ENTER ID HERE"
+```
 
 Before running your server, you will need to install the gems and add content to your database manually or you can use the seeds file:
 
