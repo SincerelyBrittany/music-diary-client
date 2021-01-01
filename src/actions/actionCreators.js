@@ -105,9 +105,8 @@ export const searchForSong = (search) => {
 }
 
 export const selectSong = (song) => {
-  console.log(song, "you are here")
+  // console.log(song, "you are here")
   return dispatch => {
-    dispatch({ type: 'REMOVE_RESULTS' })
     fetch(API + "/songs", {
       method: 'POST', 
       headers: {
@@ -117,10 +116,18 @@ export const selectSong = (song) => {
     })
     .then(response => response.json())
     .then(results => {
-      console.log(results, "song results")
+      console.log(results.id, "song results")
       //returns an array of objects 
       dispatch({ type: 'SONG_RESULTS', results })
-  })
+ 
+    //   if (results.id) {
+    //     dispatch({ type: 'SONG_RESULTS', results })
+    //     // dispatch({ type: 'REMOVE_RESULTS' })
+    //     } else {
+    //       console.log(results.message, "your error messages")
+    //     dispatch({ type: 'ADD_ERROR', message: results.message })
+    //  }
+    })
   }
 }
 
@@ -141,7 +148,7 @@ export const getAllEntries = () => {
  
 export const songOfTheDay = (song) => {
   return dispatch => {
-    dispatch({ type: 'REMOVE_RESULTS' })
+    // dispatch({ type: 'REMOVE_RESULTS' })
     fetch(API + "/entries", {
       method: 'POST', 
       headers: {
@@ -152,8 +159,16 @@ export const songOfTheDay = (song) => {
     .then(response => response.json())
     .then(results => {
       console.log(results, "song results")
-      //returns an array of objects 
-      dispatch({ type: 'SONG_RESULTS', results })
+      // dispatch({ type: 'REMOVE_RESULTS' })
+      // //returns an array of objects 
+      // dispatch({ type: 'SONG_RESULTS', results })
+       if (!results.errors) {
+        dispatch({ type: 'SONG_RESULTS', results })
+        // dispatch({ type: 'REMOVE_RESULTS' })
+        } else {
+          console.log(results.message, "your error messages")
+        dispatch({ type: 'ADD_ERROR', message: results.message })
+     }
   })
   }
 }
@@ -183,7 +198,6 @@ export const viewComments = (id) => {
 
 export const addComment = (data) => {
   return dispatch => {
-    // dispatch({ type: 'REMOVE_RESULTS' })
       // dispatch({ type: 'REMOVE_COMMENTS'})
     fetch(API + `/entries/${data.entry_id}/comments`, {
       method: 'POST', 
