@@ -22,7 +22,7 @@ const handleSubmit = (event) => {
   }
 
 
-
+  if(!props.errors){
   return(
      <div className="card">
             <h1>{name}</h1>
@@ -41,15 +41,17 @@ const handleSubmit = (event) => {
                 <input type="submit" className="submit" value="Submit" />
             </form>
     </div>
-
-  
-  )
+  )}
+  else {
+    debugger
+  }
 }
 
 const msp = (state) => ({
     user: state.user.id,
     song: state.song.results,
-    description: state.song.description
+    description: state.song.description,
+    error: state.errors
   })
 
 function mapDispatchToProps(dispatch){

@@ -49,7 +49,8 @@ class SearchEntry extends Component {
 
 const msp = (state) => ({
     loading: state.loading,
-    allsongs: state.search.results
+    allsongs: state.search.results,
+    
   })
 
 function mapDispatchToProps(dispatch){
