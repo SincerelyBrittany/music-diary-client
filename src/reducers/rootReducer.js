@@ -6,6 +6,7 @@ import addSongReducer from './currentSongReducer'
 import EntryReducer from './entryReducer'
 import entriesReducer from './entriesReducer'
 import loadingReducer from './loadingReducer'
+import errorsReducer from './errorReducer'
 
 
  
@@ -17,6 +18,7 @@ const appReducer = combineReducers({
   entries: entriesReducer, 
   entry_id: EntryReducer,
   loading: loadingReducer,
+  errors: errorsReducer,
 });
 
 const rootReducer = (state, action) => {
