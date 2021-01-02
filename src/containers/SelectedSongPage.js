@@ -43,7 +43,10 @@ const handleSubmit = (event) => {
     </div>
   )}
   else {
-    debugger
+    <div>
+      <p> This is props</p>
+      <p> {props.errors} </p>
+    </div>
   }
 }
 
@@ -51,7 +54,7 @@ const msp = (state) => ({
     user: state.user.id,
     song: state.song.results,
     description: state.song.description,
-    error: state.errors
+    errors: state.errors.message
   })
 
 function mapDispatchToProps(dispatch){

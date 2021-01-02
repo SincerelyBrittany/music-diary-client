@@ -116,7 +116,7 @@ export const selectSong = (song) => {
     })
     .then(response => response.json())
     .then(results => {
-      console.log(results.id, "song results")
+      // console.log(results.id, "song results")
       //returns an array of objects 
       dispatch({ type: 'SONG_RESULTS', results })
  
@@ -165,9 +165,10 @@ export const songOfTheDay = (song) => {
        if (!results.errors) {
         dispatch({ type: 'SONG_RESULTS', results })
         // dispatch({ type: 'REMOVE_RESULTS' })
+        // dispatch({ type: 'REMOVE_ERROR' })
         } else {
-          console.log(results.message, "your error messages")
-        dispatch({ type: 'ADD_ERROR', message: results.message })
+          console.log(results.errors, "your error messages")
+        dispatch({ type: 'ADD_ERROR', message: results.errors })
      }
   })
   }

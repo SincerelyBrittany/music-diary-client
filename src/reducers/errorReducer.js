@@ -21,6 +21,10 @@ export default function errorReducer(state = {message: "" }, action) {
                 ...state,
                 message: action.message
             }
+     case "REMOVE_ERROR":
+                return {
+                  state: {message: "" }
+                }
         default:
             return state
     }
