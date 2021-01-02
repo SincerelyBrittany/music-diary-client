@@ -1,4 +1,5 @@
 import React, { useRef, Component  } from 'react';
+import MainPage from './MainPage'
 import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { songOfTheDay, handleSongFormChange } from '../actions/actionCreators'
@@ -43,10 +44,13 @@ const handleSubmit = (event) => {
     </div>
   )}
   else {
+    return(
     <div>
       <p> This is props</p>
       <p> {props.errors} </p>
+      <MainPage />
     </div>
+    )
   }
 }
 
