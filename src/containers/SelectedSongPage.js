@@ -1,4 +1,5 @@
 import React, { useRef, Component  } from 'react';
+import MainPage from './MainPage'
 import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { songOfTheDay, handleSongFormChange } from '../actions/actionCreators'
@@ -43,7 +44,13 @@ const handleSubmit = (event) => {
     </div>
   )}
   else {
-    debugger
+    return(
+    <div>
+      <p> This is props</p>
+      <p> {props.errors} </p>
+      <MainPage />
+    </div>
+    )
   }
 }
 
@@ -51,7 +58,7 @@ const msp = (state) => ({
     user: state.user.id,
     song: state.song.results,
     description: state.song.description,
-    error: state.errors
+    errors: state.errors.message
   })
 
 function mapDispatchToProps(dispatch){

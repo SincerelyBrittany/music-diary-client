@@ -15,10 +15,9 @@ export const handleSongFormChange = (e) => ({
 
 export const sendSignup = (userData) => {
   return dispatch => {
-    // localhost:3000/users
     dispatch({ type: 'START_LOADING' })
     fetch(API + "/users", {
-      method: 'POST', // or 'PUT'
+      method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
       },
@@ -37,13 +36,10 @@ export const sendSignup = (userData) => {
 }
 
 export const sendLogin = (userData) => {
-
-    console.log("here", API + "/login", userData)
   return dispatch => {
-    // localhost:3000/users
     dispatch({ type: 'START_LOADING' })
     fetch(API + "/login", {
-      method: 'POST', // or 'PUT'
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -63,17 +59,15 @@ export const sendLogin = (userData) => {
 
 export const autoLogin = () => {
   return dispatch => {
-    // localhost:3000/users
     dispatch({ type: 'START_LOADING' })
     fetch(API + "/get_current_user", {
-      method: 'POST', // or 'PUT'
+      method: 'POST',
       headers: {
         'Authorization': localStorage.token,
       },
     })
     .then(response => response.json())
     .then(response => {
-      // debugger
       dispatch({
       type: "SET_USER",
       payload: {user: response.user}
@@ -97,7 +91,6 @@ export const searchForSong = (search) => {
     })
     .then(response => response.json())
     .then(results => {
-      //returns an array of objects 
       dispatch({ type: 'ADD_RESULTS', results })
       dispatch({ type: 'STOP_LOADING'})
   })
@@ -105,7 +98,6 @@ export const searchForSong = (search) => {
 }
 
 export const selectSong = (song) => {
-  // console.log(song, "you are here")
   return dispatch => {
     fetch(API + "/songs", {
       method: 'POST', 
@@ -116,17 +108,7 @@ export const selectSong = (song) => {
     })
     .then(response => response.json())
     .then(results => {
-      console.log(results.id, "song results")
-      //returns an array of objects 
       dispatch({ type: 'SONG_RESULTS', results })
- 
-    //   if (results.id) {
-    //     dispatch({ type: 'SONG_RESULTS', results })
-    //     // dispatch({ type: 'REMOVE_RESULTS' })
-    //     } else {
-    //       console.log(results.message, "your error messages")
-    //     dispatch({ type: 'ADD_ERROR', message: results.message })
-    //  }
     })
   }
 }
@@ -138,8 +120,6 @@ export const getAllEntries = () => {
         fetch(api_url)
           .then(response => response.json())
           .then(results => {
-            // console.log(results, "entries results")
-            //returns an array of objects 
             dispatch({ type: 'DISPLAY_ALL_ENTRY_RESULTS', results })
             dispatch({ type: 'STOP_LOADING' })
         })
@@ -158,16 +138,13 @@ export const songOfTheDay = (song) => {
     })
     .then(response => response.json())
     .then(results => {
-      console.log(results, "song results")
-      // dispatch({ type: 'REMOVE_RESULTS' })
-      // //returns an array of objects 
-      // dispatch({ type: 'SONG_RESULTS', results })
        if (!results.errors) {
+        dispatch({ type: 'REMOVE_ERROR' })
         dispatch({ type: 'SONG_RESULTS', results })
-        // dispatch({ type: 'REMOVE_RESULTS' })
+        dispatch({ type: 'REMOVE_RESULTS' })
         } else {
-          console.log(results.message, "your error messages")
-        dispatch({ type: 'ADD_ERROR', message: results.message })
+          console.log(results.errors, "your error messages")
+        dispatch({ type: 'ADD_ERROR', message: results.errors })
      }
   })
   }
