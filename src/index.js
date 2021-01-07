@@ -24,6 +24,7 @@ const pReducer = persistReducer(persistConfig, rootReducer);
 
 
 let store = createStore(pReducer, composeWithDevTools(applyMiddleware(thunk)))
+//redux allows us to send asyncronyous functions inside dispatch and applyMiddleware allows us to use thunk
 let persistor = persistStore(store)
 
 ReactDOM.render(

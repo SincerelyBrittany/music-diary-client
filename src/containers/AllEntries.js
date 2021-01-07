@@ -14,6 +14,7 @@ class AllEntries extends Component{
             entry: {}
             }
         }
+        
       componentDidMount() {
           this.props.getAllEntries()
       }

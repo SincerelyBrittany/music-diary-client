@@ -143,7 +143,7 @@ export const songOfTheDay = (song) => {
         dispatch({ type: 'SONG_RESULTS', results })
         dispatch({ type: 'REMOVE_RESULTS' })
         } else {
-          console.log(results.errors, "your error messages")
+          // console.log(results.errors, "your error messages")
         dispatch({ type: 'ADD_ERROR', message: results.errors })
      }
   })
@@ -175,7 +175,6 @@ export const viewComments = (id) => {
 
 export const addComment = (data) => {
   return dispatch => {
-      // dispatch({ type: 'REMOVE_COMMENTS'})
     fetch(API + `/entries/${data.entry_id}/comments`, {
       method: 'POST', 
       headers: {
@@ -185,11 +184,8 @@ export const addComment = (data) => {
     })
     .then(response => response.json())
     .then(results => {
-      console.log(results, "song results")
-      //returns an array of objects 
-      // dispatch({ type: 'REMOVE_COMMENTS', results })
       dispatch({ type: 'ADD_COMMENTS', results })
-  })
+    })
   }
 }
 
