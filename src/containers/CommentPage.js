@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import CommentCard from '../components/CommentsCard'
 import { addComment } from '../actions/actionCreators'
+import Nav from '../components/Navbar'
 
 const Comments = (props) => {
 const audioRef = useRef()
@@ -26,10 +27,12 @@ const handleSubmit = (event) => {
 
   return(
      <div className="container">
+       <Nav/>
        <div className="comment-cards">
           {!props.comments || props.comments.length === 0 ? 
             <p>Nothing Here </p>
             : props.comments && props.comments.map(comment => <CommentCard key={comment.id} {...comment} />) }
+
       </div>
        <form onSubmit={handleSubmit}>
                 <label>
