@@ -4,36 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom'
-import { createStore, applyMiddleware} from 'redux'
+// import { composeWithDevTools } from 'redux-devtools-extension';
+// import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+// import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+// import { PersistGate } from 'redux-persist/lib/integration/react';
+
+import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux'
 import rootReducer from './reducers/rootReducer'
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
-import { PersistGate } from 'redux-persist/lib/integration/react';
 
-const persistConfig = {
-  key: 'root',
-  storage: storage,
-  stateReconciler: autoMergeLevel2 
-}
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const pReducer = persistReducer(persistConfig, rootReducer);
-
-
-let store = createStore(pReducer, composeWithDevTools(applyMiddleware(thunk)))
-//redux allows us to send asyncronyous functions inside dispatch and applyMiddleware allows us to use thunk
-let persistor = persistStore(store)
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={ store }>
       <Router>
-        <PersistGate persistor={persistor} >
-          <App />
-        </PersistGate>
+      <App />
       </Router>
     </Provider>
   </React.StrictMode>,
