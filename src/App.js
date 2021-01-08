@@ -2,8 +2,6 @@ import { Component } from 'react'
 import './App.css';
 import Login from './components/Login'
 import { autoLogin, logout } from './actions/actionCreators'
-// import Navbar from './containers/Navbar'
-// import LoadingContainer from './containers/LoadingContainer'
 import newSearch from './containers/SearchPage'
 import allEntries from './containers/AllEntries'
 import selectedSong from './containers/SelectedSongPage'
@@ -19,14 +17,6 @@ class App extends Component {
     localStorage.token && this.props.autoLogin()
   }
   render(){
-  //   if (this.props.loading) {
-  //     return (
-  //         <div> 
-  //             <h1> Loading </h1>
-  //             <LoadingContainer/>
-  //         </div>
-  //     )
-  // } else 
   return (
       <div className="container">
         {this.props.user.id

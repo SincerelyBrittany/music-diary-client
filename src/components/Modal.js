@@ -3,8 +3,8 @@ import React from "react";
 const modal = props => {
     let show = props.show
     let entry = props.entry
-    console.log(show, "this is show in modal")
-    console.log(entry, "this is entry in modal")
+    // console.log(show, "this is show in modal")
+    // console.log(entry, "this is entry in modal")
 
     const showHideClassName = show ? "modal display-block" : "modal display-none";
   
