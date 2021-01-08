@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { viewComments, getAllEntries } from '../actions/actionCreators'
 import LoadingContainer from './LoadingContainer'
+import LikeButton from '../components/LikeButton'
 import Modal from "../components/Modal";
 import Nav from '../components/Navbar'
 
@@ -11,11 +12,14 @@ class AllEntries extends Component{
             super(props);
             this.state = {
             show: false,
-            entry: {}
+            entry: {},
+            like: 0,
             }
         }
       componentDidMount() {
+          console.log("a")
           this.props.getAllEntries()
+          console.log("b")
       }
 
       handleCommentClick = (e) => {
@@ -40,8 +44,6 @@ class AllEntries extends Component{
             show: !this.state.show,
             entry: data
           })
-
-        //display modal with information!
     }
 
     onClose = e => {
@@ -49,6 +51,13 @@ class AllEntries extends Component{
             show: !this.state.show,
           })
     };
+
+    // like = e => {
+    //     console.log("this is like", e.target.dataset.id)
+    //     this.setState({
+    //         like: this.state.like + 1
+    //     })
+    // }
 
 
       renderEntries(){
@@ -61,16 +70,12 @@ class AllEntries extends Component{
                       <img src={card.song.image} alt="Image" />
                       <button data-id={card.id} onClick={this.handleCommentClick}> View All Comments/ Comment on Diary Entry  </button>
                       <button data-id={card.id} onClick={this.handleEntryClick}> View Entry  </button>
+                      <LikeButton />
                 </div>
         })
     } 
 
       render(){
-        //   if (this.props.loading) {
-        //     return (
-        //         <LoadingContainer/>
-        //     )
-        // } else 
         return (
                 <div>
                      <Nav />
@@ -78,18 +83,6 @@ class AllEntries extends Component{
                     <div className="cards">
                         {this.renderEntries()}
                         <Modal show={this.state.show} entry={this.state.entry} close={this.onClose}>
-                        <>
-                                {/* <button
-                                className="btn1"
-                                onClick={e => {
-                                    console.log(e)
-                                    this.onClose(e);
-                                }}
-                            >
-                                Close
-                            </button> */}
-                    </>
-            
                     </Modal>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 const initialState = {
     results: [],
-    description: "I do not know how to update this yet, will need to ask for guidance",
+    description: "Please add an entry here",
   }
   
   const addSongReducer = (state=initialState, action) => {

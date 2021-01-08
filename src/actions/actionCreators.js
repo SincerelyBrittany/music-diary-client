@@ -117,9 +117,11 @@ export const getAllEntries = () => {
   return dispatch => {
     dispatch({ type: 'START_LOADING' })
      const api_url = "http://localhost:3000/api/v1/entries";
+     console.log("c")
         fetch(api_url)
           .then(response => response.json())
           .then(results => {
+            console.log("d")
             dispatch({ type: 'DISPLAY_ALL_ENTRY_RESULTS', results })
             dispatch({ type: 'STOP_LOADING' })
         })
@@ -165,7 +167,6 @@ export const viewComments = (id) => {
     .then(results => {
       console.log(results, "this is the comments results")
       // //returns an array of objects 
-      console.log(id, "this is id")
       dispatch({ type: 'ADD_COMMENT_ID', id })
       dispatch({ type: 'SET_COMMENTS', results })
   })

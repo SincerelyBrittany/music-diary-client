@@ -26,7 +26,6 @@ class OldEntry extends Component {
     }
 
 render(){
-    console.log(this.state.data, " this is the data given back")
     const content = this.state.data.length !== 0 ? this.state.data.map(song=> (<PastSongCard key={song.spotify_id} {...song} /> )) : 'no song found'
   return(
     <>
